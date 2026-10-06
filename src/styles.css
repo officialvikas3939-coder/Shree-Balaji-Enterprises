@@ -1,0 +1,143 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-success: var(--success);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+:root {
+  --radius: 0.5rem;
+  --background: oklch(0.985 0.008 85);
+  --foreground: oklch(0.22 0.045 265);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.045 265);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.045 265);
+  --primary: oklch(0.27 0.075 262);
+  --primary-foreground: oklch(0.98 0.01 85);
+  --secondary: oklch(0.95 0.015 85);
+  --secondary-foreground: oklch(0.27 0.075 262);
+  --muted: oklch(0.955 0.012 90);
+  --muted-foreground: oklch(0.52 0.03 262);
+  --accent: oklch(0.76 0.12 82);
+  --accent-foreground: oklch(0.22 0.045 265);
+  --gold: oklch(0.74 0.125 80);
+  --gold-soft: oklch(0.93 0.05 88);
+  --ink: oklch(0.19 0.05 264);
+  --ink-soft: oklch(0.28 0.06 264);
+  --success: oklch(0.6 0.14 155);
+  --destructive: oklch(0.55 0.2 27);
+  --destructive-foreground: oklch(0.98 0.01 85);
+  --border: oklch(0.9 0.015 88);
+  --input: oklch(0.9 0.015 88);
+  --ring: oklch(0.74 0.125 80);
+  --gradient-ink: linear-gradient(135deg, oklch(0.19 0.05 264), oklch(0.31 0.07 262));
+  --gradient-gold: linear-gradient(100deg, oklch(0.68 0.11 72), oklch(0.85 0.13 92), oklch(0.7 0.12 76));
+  --shadow-card: 0 1px 2px oklch(0.22 0.045 265 / 0.06), 0 12px 28px -18px oklch(0.22 0.045 265 / 0.35);
+  --shadow-lift: 0 18px 40px -20px oklch(0.22 0.045 265 / 0.45);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.015em;
+  }
+}
+
+@utility surface-ink {
+  background-image: var(--gradient-ink);
+  color: var(--color-primary-foreground);
+}
+
+@utility text-gilded {
+  background-image: var(--gradient-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility card-elevated {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+  transition:
+    box-shadow 0.35s ease,
+    transform 0.35s ease;
+  &:hover {
+    box-shadow: var(--shadow-lift);
+    transform: translateY(-4px);
+  }
+}
+
+@utility gold-rule {
+  height: 2px;
+  width: 4rem;
+  background-image: var(--gradient-gold);
+}
+
+@utility btn-gold {
+  background-image: var(--gradient-gold);
+  color: oklch(0.19 0.05 264);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  transition: filter 0.25s ease;
+  &:hover {
+    filter: brightness(1.07);
+  }
+}
+
+@utility btn-ink {
+  background-image: var(--gradient-ink);
+  color: var(--color-primary-foreground);
+  transition: filter 0.25s ease;
+  &:hover {
+    filter: brightness(1.15);
+  }
+}
