@@ -68,10 +68,10 @@ export function SiteHeader() {
 
           <div className="ml-auto flex items-center gap-1 md:ml-0">
             <a
-              href="tel:+919414314135"
+              href="tel:+916376403939"
               className="hidden items-center gap-2 rounded-full px-3 py-2 text-sm text-ink-soft hover:bg-muted lg:flex"
             >
-              <Phone className="h-4 w-4" /> +91 94143 141350
+              <Phone className="h-4 w-4" /> +91 6376403939
             </a>
             {adminStatus?.isAdmin ? (
               <Link
