@@ -71,7 +71,7 @@ export function SiteHeader() {
               href="tel:+919414314135"
               className="hidden items-center gap-2 rounded-full px-3 py-2 text-sm text-ink-soft hover:bg-muted lg:flex"
             >
-              <Phone className="h-4 w-4" /> +91 94143 14135
+              <Phone className="h-4 w-4" /> +91 94143 141350
             </a>
             {adminStatus?.isAdmin ? (
               <Link
